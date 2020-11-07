@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reporting Dashboard</title>
+
+  <!-- Load Bootstrap 4 -->
+  <!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <!-- Load Chart JS -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+  <!-- Load Font Awesome -->
+  <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js" data-auto-replace-svg></script>
+
+  <!-- Load our stylesheet -->
+
+<style>
+table, th, td {
+  border: 1px white;
+  border-collapse: collapse;
+}
+table.center {
+  margin-left:auto; 
+  margin-right:auto;
+}
+text {
+  position: top;
+  text-align:center
+}
+</style>
+
+  <!-- CSS only -->
+
+  <link rel="stylesheet" type="text/css" HREF="../css/styles.css">
+
+</head>
+
+<body>
+
+<!-- Code. -->
+
+
+  <div><text><h1>Let's Analyze - Total Pins by Image in Category</h1></text></div>
+  
+
+
+
+     <canvas id="YourChartNameWithoutSpacesHere" width="400" height="150"></canvas>
+<table class="center">
+  <tr>
+    <td><img src="https://i.pinimg.com/150x150/3b/1d/de/3b1dde4c085bf147a5ec1a1b9550cda1.jpg"src></td>
+    <td><img src="https://i.pinimg.com/150x150/9f/b3/0d/9fb30d5b0998eab8e8ef0e0e44870bca.jpg"src></td>
+    <td><img src="https://i.pinimg.com/150x150/71/f0/6d/71f06dce62d0d180965834f443c4434b.jpg"src></td>
+    <td><img src="https://i.pinimg.com/150x150/dd/02/91/dd0291c6b188af69349e57a960d265fd.jpg"src></td>
+    <td><img src="https://i.pinimg.com/150x150/88/40/fd/8840fdf5ff4c6ba8c337b749989b5148.jpg"src></td>
+  </tr>
+    <tr>
+    <td>pins: 2</td>
+    <td>pins: 1</td>
+    <td>pins: 7</td>
+    <td>pins: 2</td>
+    <td>pins: 1</td>
+  </tr>
+  <tr>
+    <td><img src="https://i.pinimg.com/150x150/4f/e9/4a/4fe94a7a6e9f3d77fd15205c4bdf48ef.jpg"src></td>
+  </tr>
+  <tr>
+    <td>pins: 2</td>
+  </tr>
+  <tr>
+    <td><img src="https://i.pinimg.com/150x150/d3/0c/32/d30c324e8019312eecf92e536231cc2c.jpg"src></td>
+    <td><img src="https://i.pinimg.com/150x150/aa/9f/4c/aa9f4c17d3e1d01443fee1c0090b2420.jpg"src></td>
+    <td><img src="https://i.pinimg.com/150x150/dc/b3/08/dcb30855f4ea9f7d3243c532d419cc40.jpg"src></td>
+    <td><img src="https://i.pinimg.com/150x150/1b/0f/0b/1b0f0b0807a56002ec2475ca0aa3ca8b.jpg"src></td>
+  </tr>
+  <tr>
+    <td>pins: 1</td>
+    <td>pins: 1</td>
+    <td>pins: 3</td>
+    <td>pins: 1</td>
+
+  </tr>
+  <tr>
+    <td><img src="https://i.pinimg.com/150x150/74/37/87/743787cecb89da45a8445800238d5fc5.jpg"src></td>
+    <td><img src="https://i.pinimg.com/150x150/6b/eb/06/6beb0646ddebc2592289e5cfa025ab50.jpg"src></td>
+    <td><img src="https://i.pinimg.com/150x150/3f/59/9f/3f599f43810a70a83c2d3f9d74022231.jpg"src></td>
+    <td><img src="https://i.pinimg.com/150x150/e2/48/38/e248388fe615f6376a4c98f9dc2c479f.jpg"src></td>
+    <td><img src="https://i.pinimg.com/150x150/ae/dd/92/aedd92add3ee23dba45cbde0da918596.jpg"src></td>
+    <td><img src="https://i.pinimg.com/150x150/1c/8d/a8/1c8da8179329f181d56fa3652ac021ab.jpg"src></td>
+
+
+  </tr>
+    <tr>
+    <td>pins: 1</td>
+    <td>pins: 1</td>  
+    <td>pins: 2</td>
+    <td>pins: 1</td>
+    <td>pins: 3</td>
+    <td>pins: 1</td>
+
+   
+  </tr>
+</table>
+  <script>
+ 
+        // bar chart data
+
+            var barData = {
+                labels : [ "April","May","June","July","August","September" ],
+                datasets : [
+                    {
+                        fillColor : "#48A497",
+                        strokeColor : "#48A4D1",
+                        data : {{ YourColumnNameHere }}
+                    }
+                ]
+            }
+
+            // get bar chart canvas
+
+            var YourChartNameWithoutSpacesHere = document.getElementById("YourChartNameWithoutSpacesHere").getContext("2d");
+
+            // draw bar chart
+
+            new Chart(YourChartNameWithoutSpacesHere).Bar(barData);
+
+
+       </script>
+
+
+<!-- JS-based components. -->
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
