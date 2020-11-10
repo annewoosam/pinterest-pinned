@@ -13,32 +13,36 @@ import model
 import server
 
 
-os.system('dropdb YourFolderUnderscoredAsDatabaseNameHere')
+os.system('dropdb pinterest_pins')
 
-os.system('createdb YourFolderUnderscoredAsDatabaseNameHere')
+os.system('createdb pinterest_pins')
 
 model.connect_to_db(server.app)
 
 model.db.create_all()
 
 
-# Create YourModelNameLowerCasedHere table's initial data.
+# Create Pin table's initial data.
 
-with open('data/YourModelNameLowerCasedSingularHere.json') as f:
+with open('data/pin.json') as f:
 
-    YourModelNameLowerCasedSingularHere_data = json.loads(f.read())
+    pin_data = json.loads(f.read())
 
-YourModelNameLowerCasedSingularHere_in_db = []
+pin_in_db = []
 
-for YourModelNameLowerCasedSingularHere in YourModelNameLowerCasedSingularHere_data:
-    columnNamesSeparatedbyCommasUntilLastOne= (
-                                   YourModelNameLowerCasedSingularHere['YourFirstColumnNameHere'],
-                                   YourModelNameLowerCasedSingularHere['YourNextColumnNameHereTillLast'],
-                                   YourModelNameLowerCasedSingularHere['YourLastColumnNameHere'])
+for pin in pin_data:
+    channel_name, board_name, email_date, image_url, image_name= (
+                                   pin['channel_name'],
+                                   pin['board_name'],
+                                   pin['email_date'],
+                                   pin['image_url'],
+                                   pin['image_name'])
 
-    db_YourModelNameLowerCasedSingularHere = crud.create_YourModelNameLowerCasedSingularHere(
-                                 YourFirstColumnNameHere,
-                                 YourNextColumnNameHereTillLast,
-                                 YourLastColumnNameHere)
+    db_pin = crud.create_pin(
+                                 channel_name,
+                                 board_name,
+                                 email_date,
+                                 image_url,
+                                 image_name)
 
-    YourModelNameLowerCasedSingularHere_in_db.append(db_YourModelNameLowerCasedSingularHere)
+    pin_in_db.append(db_pin)

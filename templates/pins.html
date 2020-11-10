@@ -40,7 +40,7 @@ text {
 <!-- Code. -->
 
 
-  <div><text><h1>Let's Analyze - Total Pins by Image in Category</h1></text></div>
+  <div><text><h1>Total Pins by Image in Category</h1></text></div>
   
 
 
@@ -101,31 +101,7 @@ text {
    
   </tr>
 </table>
-  <script>
- 
-        // bar chart data
 
-            var barData = {
-                labels : [ "April","May","June","July","August","September" ],
-                datasets : [
-                    {
-                        fillColor : "#48A497",
-                        strokeColor : "#48A4D1",
-                        data : {{ YourColumnNameHere }}
-                    }
-                ]
-            }
-
-            // get bar chart canvas
-
-            var YourChartNameWithoutSpacesHere = document.getElementById("YourChartNameWithoutSpacesHere").getContext("2d");
-
-            // draw bar chart
-
-            new Chart(YourChartNameWithoutSpacesHere).Bar(barData);
-
-
-       </script>
 
 
 <!-- JS-based components. -->

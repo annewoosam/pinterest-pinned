@@ -10,7 +10,7 @@ db = SQLAlchemy()
 
 # created import allowing connection to database
 
-from model import connect_to_db, YourModelNameTitleCaseSingularStats, db
+from model import connect_to_db, Pin, db
 
 app = Flask(__name__)
 
@@ -25,21 +25,23 @@ import crud
 
 @app.route('/')
 
-def all_YourModelNameLowerCasePluralStats():
+def all_pins():
 
-    stats=crud.get_YourModelNameLowerCasePlural()
+    stats=crud.get_pins()
     
-    YourVariableName=[q[0] for q in db.session.query(YourModelNameInTitleCaseHere.YourVariableName).all()]
+    pin_id=[q[0] for q in db.session.query(Pin.pin_id).all()]
 
-    YourNextVariableName=[q[0] for q in db.session.query(YourModelNameInTitleCaseHere.YourNextVariableName).all()]
+    channel_name=[q[0] for q in db.session.query(Pin.channel_name).all()]
      
-    #repeat till next to last variable accounted for
-      
-    YourLastVariableName=[q[0] for q in db.session.query(YourModelNameInTitleCaseHere.YourLastVariableName).all()]
-    
-    # repeat through all columns needed
+    board_name=[q[0] for q in db.session.query(Pin.board_name).all()]
 
-    return render_template('YourModelNameLowerCasePlural.html', YourVariable_Name=YourVariable_Name, YourNextVariableName=YourNextVariableName, YourLastVariableName=YourLastVariableName)
+    email_date=[q[0] for q in db.session.query(Pin.email_date).all()]
+
+    image_url=[q[0] for q in db.session.query(Pin.image_url).all()]
+      
+    image_name=[q[0] for q in db.session.query(Pin.image_name).all()]
+
+    return render_template('pins.html', pin_id=pin_id, channel_name=channel_name, board_name=board_name, email_date=email_date, image_url=image_url, image_name=image_name)
 
 if __name__ == '__main__':
 

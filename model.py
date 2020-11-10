@@ -4,23 +4,27 @@ import datetime
 
 db = SQLAlchemy()
 
-# test = YourClassNameHereInTitleCaseSingular(channel_name='WinningCheckers', email_date='2020-01-31',number_subscribers = '1', month_end_at='2019-12-31', subscribers='0', views='1', minutes_watched='2', likes='3', comments='4', posts='5', shares='6')
-
-class YourClassNameHereInTitleCaseSingular(db.Model):
-    """A class for creator ."""
+class Pin(db.Model):
+    """A class for pins ."""
     
-    __tablename__ = 'YourTableNameHereLowerCasePlural'
+    __tablename__ = 'pins'
 
-    YourPrimaryIDColumnNameHereLowerCase_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    pin_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
 
-    YourColumnNameHereLowerCase = db.Column(YourDBTypeHereAsdb.typeSuchAsStringIntegerDate)
+    channel_name = db.Column(db.String)
 
-# keep repeating till all column names finished
+    board_name = db.Column(db.String)
+
+    email_date=db.Column(db.Date)
+
+    image_url=db.Column(db.String)
+
+    image_name=db.Column(db.String)
 
     def __repr__(self):
-        return f'<YourClassNameHereInTitleCaseSingular YourPrimaryKeyVariableHere={self.YourPrimaryKeyVariableHere} SecondColumnVariableNameHere={self.SecondColumnVariableNameHere}>'
+        return f'<Pin pin_id={self.pin_id} channel_name={self.channel_name}>'
 
-def connect_to_db(flask_app, db_uri='postgresql:///YourDatabaseNamehere', echo=True):
+def connect_to_db(flask_app, db_uri='postgresql:///pinterest_pins', echo=True):
    
     flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
    
